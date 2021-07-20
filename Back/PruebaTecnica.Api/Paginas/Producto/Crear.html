@@ -1,0 +1,31 @@
+<div class="container">
+    <row>
+        <form role="form" name="formCrear" ng-submit="crear(producto)">
+            <div class="col-md-7 col-md-offset-2" style="text-align:center">
+
+                <label>Nombre <span style="color: red; font-weight:bold"> *</span></label>
+                <input type="text"
+                       class="form-control"
+                       ng-required="true"
+                       ng-model="producto.name" />
+
+                <label>Valor unitario <span style="color: red; font-weight:bold"> *</span></label>
+                <input type="number"
+                       class="form-control"
+                       ng-required="true"
+                       min="1"
+                       ng-model="producto.value" />
+                
+                <label>Cantidad disponible<span style="color: red; font-weight:bold"> *</span></label>
+                <input type="number"
+                        class="form-control"
+                        ng-required="true"
+                        min="1"
+                        max="5000"
+                        ng-model="producto.quantity" />
+
+                <br /><button type="submit" class="btn btn-primary">Crear Producto</button><br /><br />
+            </div>
+        </form>
+    </row>
+</div>

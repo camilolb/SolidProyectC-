@@ -1,0 +1,48 @@
+<div class="container">
+    <row>
+        <form role="form" name="formCrear" ng-submit="crear(producto)">
+            <div class="col-md-7 col-md-offset-2" style="text-align:center">
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <label>Codigo de producto <span style="color: red; font-weight:bold"> *</span></label>
+                        <input type="number"
+                               class="form-control"
+                               ng-model="producto.code" />
+
+                    </div>
+                    <div class="col-md-2">
+                        <button ng-click="productoPorCodigo(producto.code)">Buscar
+                        </button>
+                    </div>
+                </div>
+
+                <label>Nombre de producto <span style="color: red; font-weight:bold"> *</span></label>
+                <input type="text"
+                       class="form-control"
+                       ng-disabled="true"
+                       ng-model="producto.name" />
+
+                <label>Valor unitario <span style="color: red; font-weight:bold"> *</span></label>
+                <input type="number"
+                       class="form-control"
+                       ng-disabled="true"
+                       min="1"
+                       ng-model="producto.value" />
+                
+                <label>Cantidad <span style="color: red; font-weight:bold"> *</span></label>
+                <input type="number"
+                        class="form-control"
+                        ng-required="true"
+                        min="1"
+                        max="producto.quantity"
+                        ng-model="producto.quantity" />
+                
+        
+                total = <p>{{ producto.value *  producto.quantity}}</p>
+
+                <br /><button type="submit" class="btn btn-primary">Crear Producto</button><br /><br />
+            </div>
+        </form>
+    </row>
+</div>
