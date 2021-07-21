@@ -4,9 +4,8 @@ using System.Text.Json.Serialization;
 
 namespace PruebaTecnica.Core.Entities
 {
-    public class Security
+    public class Security : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Username { get; set; }
 
@@ -17,7 +16,5 @@ namespace PruebaTecnica.Core.Entities
 
         [NotMapped]
         public string Token { get; set; }
-        public DateTime? Create { get; set; }
-        public DateTime? Modify { get; set; }
     }
 }

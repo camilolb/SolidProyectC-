@@ -22,11 +22,22 @@ namespace Pruebatecnica.Infrastructura.Data
         public virtual DbSet<Security> Security { get; set; }
 
 
+
+        public virtual DbSet<Build> Build { get; set; }
+        public virtual DbSet<Departament> Departament { get; set; }
+        public virtual DbSet<Owner> Owner { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new SecurityConfiguration());
             modelBuilder.ApplyConfiguration(new SalesConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+
+            modelBuilder.ApplyConfiguration(new BuildConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartamentConfiguration());
+            modelBuilder.ApplyConfiguration(new OwnerConfiguration());
+
 
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

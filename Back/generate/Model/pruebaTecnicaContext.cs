@@ -17,6 +17,9 @@ namespace generate.Model
         {
         }
 
+        public virtual DbSet<Build> Builds { get; set; }
+        public virtual DbSet<Departament> Departaments { get; set; }
+        public virtual DbSet<Owner> Owners { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Security> Securities { get; set; }
@@ -34,6 +37,62 @@ namespace generate.Model
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Build>(entity =>
+            {
+                entity.ToTable("Build");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Create).HasColumnType("datetime");
+
+                entity.Property(e => e.Modify).HasColumnType("datetime");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tower)
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Departament>(entity =>
+            {
+                entity.ToTable("Departament");
+
+                entity.Property(e => e.Create).HasColumnType("datetime");
+
+                entity.Property(e => e.Modify).HasColumnType("datetime");
+
+                entity.Property(e => e.Number)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Build)
+                    .WithMany(p => p.Departaments)
+                    .HasForeignKey(d => d.BuildId)
+                    .HasConstraintName("FK_Departament_BuildID");
+            });
+
+            modelBuilder.Entity<Owner>(entity =>
+            {
+                entity.ToTable("Owner");
+
+                entity.Property(e => e.Create).HasColumnType("datetime");
+
+                entity.Property(e => e.FullName)
+                    .IsRequired()
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Modify).HasColumnType("datetime");
+            });
 
             modelBuilder.Entity<Product>(entity =>
             {
@@ -105,7 +164,7 @@ namespace generate.Model
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Username)

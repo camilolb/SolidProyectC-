@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{A3A13913-E558-40E0-8D30-3EF3B5A53B60}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Api/Controllers/SecurityController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Api/Controllers/BuildController.cs">
     <Files>
-      <File FileName="PruebaTecnica.Api/Startup.cs" Line="47" Column="32" />
-      <File FileName="PruebaTecnica.Core/Entities/Security.cs" Line="22" Column="6" />
-      <File FileName="PruebaTecnica.Core/Services/SecurityService.cs" Line="27" Column="53" />
-      <File FileName="PruebaTecnica.Core/Auth/JwtService.cs" Line="8" Column="2" />
-      <File FileName="PruebaTecnica.Api/Controllers/SecurityController.cs" Line="13" Column="6" />
+      <File FileName="PruebaTecnica.Api/Controllers/ProductController.cs" Line="39" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,30 +9,31 @@
           <Node name="PruebaTecnica" expanded="True">
             <Node name="1- Core" expanded="True">
               <Node name="PruebaTecnica.Core" expanded="True">
-                <Node name="Dependencies" expanded="True">
-                  <Node name="PackageDependencies" expanded="True" />
-                </Node>
-                <Node name="Auth" expanded="True" />
-                <Node name="DTOs" expanded="True" />
-                <Node name="Entities" expanded="True" />
+                <Node name="Interfaces" expanded="True" />
                 <Node name="Services" expanded="True" />
               </Node>
             </Node>
             <Node name="2- Infraestructura" expanded="True">
               <Node name="Pruebatecnica.Infraestructura" expanded="True">
+                <Node name="Data" expanded="True">
+                  <Node name="Configuration" expanded="True" />
+                </Node>
                 <Node name="Repositories" expanded="True" />
+                <Node name="Validators" expanded="True" />
               </Node>
             </Node>
             <Node name="3 - Api" expanded="True">
               <Node name="PruebaTecnica.Api" expanded="True">
-                <Node name="Dependencies" expanded="True" />
                 <Node name="Controllers" expanded="True">
-                  <Node name="SecurityController.cs" selected="True" />
+                  <Node name="BuildController.cs" selected="True" />
                 </Node>
-                <Node name="Paginas" expanded="True" />
               </Node>
             </Node>
-            <Node name="4- Test" expanded="True" />
+            <Node name="4- Test" expanded="True">
+              <Node name="generate" expanded="True">
+                <Node name="Model" expanded="True" />
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>

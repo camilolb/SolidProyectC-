@@ -10,13 +10,13 @@ namespace PruebaTecnica.Core.Services
     public class SalesService : ISalesService
     {
         private readonly ISalesRepository _salesRepository;
-        private readonly IProductRepository _productRepository;
+        
 
         public SalesService(ISalesRepository salesRepository
-            , IProductRepository productRepository)
+            )
         {
             _salesRepository = salesRepository;
-            _productRepository = productRepository;
+            
         }
 
 
@@ -38,8 +38,6 @@ namespace PruebaTecnica.Core.Services
 
         public async Task Insert(Sales item)
         {
-            var product = await _productRepository.Get(item.ProductId);
-            item.Total = ((float)product.Value * item.Quantity);
             
             await _salesRepository.Insert(item);
         }

@@ -51,14 +51,15 @@ namespace PruebaTecnica.Api
             services.AddTransient<ISalesRepository, SalesRepository>();
             services.AddTransient<ISalesService, SalesService>();
 
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IProductService, ProductService>();
+            
+            services.AddTransient<IBuildService, BuildService>();
 
             services.AddTransient<ISecurityRepository, SecurityRepository>();
             services.AddTransient<ISecurityService, SecurityService>();
 
             services.AddTransient<IJwtService, JwtService>();
 
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

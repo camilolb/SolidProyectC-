@@ -8,12 +8,12 @@ using PruebaTecnica.Core.Interfaces;
 
 namespace Pruebatecnica.Infraestructura.Repositories
 {
-    public class ProductRepository : IProductRepository
+    public class BuildRepository : IBuildRepository
     {
 
         private readonly DatabaseContext _dbContext;
 
-        public ProductRepository(DatabaseContext dbContext)
+        public BuildRepository(DatabaseContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -21,31 +21,31 @@ namespace Pruebatecnica.Infraestructura.Repositories
         public async Task<bool> Delete(int id)
         {
             var current = await Get(id);
-            _dbContext.Product.Remove(current);
+            _dbContext.Build.Remove(current);
 
             int rowAfected = await _dbContext.SaveChangesAsync();
             return rowAfected > 0;
         }
 
-        public async Task<Product> Get(int id)
+        public async Task<Build> Get(int id)
         {
-            var response = await _dbContext.Product.FirstOrDefaultAsync(x => x.Id == id);
+            var response = await _dbContext.Build.FirstOrDefaultAsync(x => x.Id == id);
             return response;
         }
 
-        public async Task<IEnumerable<Product>> Gets()
+        public async Task<IEnumerable<Build>> Gets()
         {
-            var response = await _dbContext.Product.ToListAsync();
+            var response = await _dbContext.Build.ToListAsync();
             return response;
         }
 
-        public async Task Insert(Product item)
+        public async Task Insert(Build item)
         {
-            _dbContext.Product.Add(item);
+            _dbContext.Build.Add(item);
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<bool> Update(Product item)
+        public async Task<bool> Update(Build item)
         {
             var current = await Get(item.Id);
             current.Name = item.Name;

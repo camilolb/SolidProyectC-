@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 using PruebaTecnica.Core.Entities;
 namespace PruebaTecnica.Core.Interfaces
 {
-    public interface IProductRepository
+    public interface IBuildRepository
     {
 
-        Task<IEnumerable<Product>> Gets();
-        Task<Product> Get(int id);
-        Task Insert(Product item);
-        Task<bool> Update(Product item);
+        Task<IEnumerable<Build>> Gets();
+        Task<Build> Get(int id);
+        Task Insert(Build item);
+        Task<bool> Update(Build item);
         Task<bool> Delete(int id);
     }
 }
