@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +24,6 @@ namespace PruebaTecnica.Api.Controllers
         [HttpPost("{login}")]
         public async Task<IActionResult> Login(string userName, string password)
         {
-
             try
             {
                 var service = await _userService.Get(userName, password);
