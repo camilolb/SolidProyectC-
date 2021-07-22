@@ -7,7 +7,6 @@ namespace PruebaTecnica.Core.Services
     {
         private readonly ISecurityRepository _securityRepository;
         
-
         public SecurityService(ISecurityRepository userRepository)
         {
             _securityRepository = userRepository;
@@ -27,6 +26,8 @@ namespace PruebaTecnica.Core.Services
             var validate = !BCrypt.Net.BCrypt.Verify(password, res.Password);
             if (validate)
             {
+                throw new System.Exception("Error user or password");
+
             }
 
             var user = await _securityRepository.Get(userName, res.Password);

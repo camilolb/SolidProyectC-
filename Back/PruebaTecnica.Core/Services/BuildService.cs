@@ -17,8 +17,6 @@ namespace PruebaTecnica.Core.Services
             _unitOfWork = unitOfWork;
         }
 
-        
-
         public async Task<Build> Get(int id)
         {
             return await _unitOfWork.BuildRepository.GetById(id);
@@ -26,6 +24,7 @@ namespace PruebaTecnica.Core.Services
 
         public IEnumerable<Build> Gets()
         {
+            
             return _unitOfWork.BuildRepository.GetAll();
         }
 

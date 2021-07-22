@@ -6,8 +6,9 @@ namespace PruebaTecnica.Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<Security> SecurityRepository { get; }
-        IRepository<Build> BuildRepository { get;  }
+        IRepository<Build> BuildRepository { get; }
+        IRepository<Departament> DepartamentRepository { get; }
+        IRepository<Owner> OwnerRepository { get; }
 
         void SaveChanges();
 

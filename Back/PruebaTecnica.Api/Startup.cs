@@ -47,11 +47,9 @@ namespace PruebaTecnica.Api
                        .AllowAnyHeader();
             }));
 
-            
-            services.AddTransient<ISalesRepository, SalesRepository>();
-            services.AddTransient<ISalesService, SalesService>();
 
-            
+
+            services.AddTransient<IDepartamentService, DepartamentService>();
             services.AddTransient<IBuildService, BuildService>();
 
             services.AddTransient<ISecurityRepository, SecurityRepository>();

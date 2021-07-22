@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Pruebatecnica.Infrastructura.Data;
 using PruebaTecnica.Core.Entities;
 using PruebaTecnica.Core.Interfaces;
@@ -10,18 +9,20 @@ namespace Pruebatecnica.Infraestructura.Repositories
     {
         private readonly DatabaseContext _dbContext;
 
-        private readonly IRepository<Security> _securityRepository;
         private readonly IRepository<Build> _buildRepository;
-
-
+        private readonly IRepository<Departament> _departamentRepository;
+        private readonly IRepository<Owner> _ownerRepository;
+        
+        
         public UnitOfWork(DatabaseContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public IRepository<Security> SecurityRepository => _securityRepository ?? new BaseRepository<Security>(_dbContext);
-
         public IRepository<Build> BuildRepository => _buildRepository ?? new BaseRepository<Build>(_dbContext);
+        public IRepository<Departament> DepartamentRepository => _departamentRepository ?? new BaseRepository<Departament>(_dbContext);
+        public IRepository<Owner> OwnerRepository => _ownerRepository ?? new BaseRepository<Owner>(_dbContext);
+
 
         public void Dispose()
         {
