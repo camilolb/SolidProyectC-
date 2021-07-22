@@ -21,18 +21,32 @@ namespace PruebaTecnica.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var service =  _BuildService.Gets();
-            var response = new ApiResponse<IEnumerable<Build>>(service);
-            return Ok(response);
+            try
+            {
+                var service = _BuildService.Gets();
+                var response = new ApiResponse<IEnumerable<Build>>(service);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
         }
 
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var service = await _BuildService.Get(id);
-            var response = new ApiResponse<Build>(service);
-            return Ok(response);
+            try
+            {
+                var service = await _BuildService.Get(id);
+                var response = new ApiResponse<Build>(service);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
         }
 
 
@@ -40,21 +54,34 @@ namespace PruebaTecnica.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Build item)
         {
-            await _BuildService.Insert(item);
-            var response = new ApiResponse<Build>(item);
-            return Ok(response);
+            try
+            {
+                await _BuildService.Insert(item);
+                var response = new ApiResponse<Build>(item);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
         }
 
         [HttpPut]
         public IActionResult Put(int id, Build item)
         {
-            item.Id = id;
-            _BuildService.Update(item);
-            var response = new ApiResponse<bool>(true);
+            try
+            {
+                item.Id = id;
+                _BuildService.Update(item);
+                var response = new ApiResponse<bool>(true);
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
         }
-
 
     }
 }

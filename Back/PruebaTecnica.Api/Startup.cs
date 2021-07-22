@@ -60,6 +60,8 @@ namespace PruebaTecnica.Api
             services.AddTransient<IJwtService, JwtService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

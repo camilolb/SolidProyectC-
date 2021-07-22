@@ -9,41 +9,44 @@ namespace PruebaTecnica.Core.Services
     public class BuildService : IBuildService
     {
 
-        //private readonly IBuildRepository _buildRepository;
-
-        private readonly IRepository<Build> _buildRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
 
-        public BuildService(IRepository<Build> buildRepository)
+        public BuildService(IUnitOfWork unitOfWork)
         {
-            _buildRepository = buildRepository;
+            _unitOfWork = unitOfWork;
         }
 
         
 
         public async Task<Build> Get(int id)
         {
-            return await _buildRepository.GetById(id);
+            return await _unitOfWork.BuildRepository.GetById(id);
         }
 
         public IEnumerable<Build> Gets()
         {
-            return _buildRepository.GetAll();
+            return _unitOfWork.BuildRepository.GetAll();
         }
 
         public async Task Insert(Build item)
         {
-            await _buildRepository.Add(item);
+            await _unitOfWork.BuildRepository.Add(item);
+            _unitOfWork.SaveChanges();
         }
 
         public void Update(Build item)
         {
-            _buildRepository.Update(item);
+            _unitOfWork.BuildRepository.Update(item);
+            _unitOfWork.SaveChanges();
+
         }
 
         public async Task Delete(int id)
         {
-            await _buildRepository.Delete(id);
+            await _unitOfWork.BuildRepository.Delete(id);
+            _unitOfWork.SaveChanges();
+
         }
 
     }
