@@ -8,7 +8,7 @@ namespace PruebaTecnica.Core.Auth
 {
     public class JwtService : IJwtService
     {
-        private string SecureKey = "hola asas ferwer sasas s";
+        private string SecureKey = "274ywwplwz27417AA$a12va3";
 
         public string Generate(int id)
         {

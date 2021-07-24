@@ -34,6 +34,22 @@ namespace PruebaTecnica.Api.Controllers
         }
 
 
+        [HttpGet("departamentByOwner")]
+        public IActionResult DepartamentByOwner(int id)
+        {
+            try
+            {
+                var service = _departamentService.DepartamentAndOwner(id);
+                var response = new ApiResponse<IEnumerable<Departament>>(service);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
+        }
+
+
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {

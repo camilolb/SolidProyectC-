@@ -22,6 +22,14 @@ namespace PruebaTecnica.Core.Services
             return await _unitOfWork.BuildRepository.GetById(id);
         }
 
+        public IEnumerable<Build> BuildAndDepartaments(int id)
+        {
+            var includes = new string[] { "Departaments" };
+
+            var res = _unitOfWork.BuildRepository.Find(x => x.Id == id, includes);
+            return res;
+        }
+
         public IEnumerable<Build> Gets()
         {
             

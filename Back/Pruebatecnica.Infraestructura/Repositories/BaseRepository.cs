@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Pruebatecnica.Infrastructura.Data;
@@ -27,6 +28,18 @@ namespace Pruebatecnica.Infraestructura.Repositories
             return _entities.AsEnumerable();
         }
 
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> condition, params string[] includedProperties)
+        {
+            IQueryable<T> result = this.Find(condition);
+            foreach (var item in includedProperties)
+            {
+                result = result.Include(item);
+            }
+
+            return result.AsEnumerable();
+        }
+
         public async Task<T> GetById(int id)
         {
             return await _entities.FindAsync(id);
@@ -47,5 +60,11 @@ namespace Pruebatecnica.Infraestructura.Repositories
             T entity = await GetById(id);
             _entities.Remove(entity);
         }
+
+        private IQueryable<T> Find(Expression<Func<T, bool>> condition)
+        {
+            return _entities.Where(condition);
+        }
+
     }
 }

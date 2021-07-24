@@ -9,5 +9,6 @@ namespace PruebaTecnica.Core.Interfaces
         Task<Departament> Get(int id);
         Task Insert(Departament item);
         void Update(Departament item);
+        IEnumerable<Departament> DepartamentAndOwner(int id);
     }
 }

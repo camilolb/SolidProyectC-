@@ -9,9 +9,7 @@ namespace PruebaTecnica.Core.Services
 {
     public class DepartamentService : IDepartamentService
     {
-
         private readonly IUnitOfWork _unitOfWork;
-
 
         public DepartamentService(IUnitOfWork unitOfWork)
         {
@@ -25,9 +23,18 @@ namespace PruebaTecnica.Core.Services
 
         public IEnumerable<Departament> Gets()
         {
-
             return _unitOfWork.DepartamentRepository.GetAll();
         }
+
+
+        public IEnumerable<Departament> DepartamentAndOwner(int id)
+        {
+            var includes = new string[] { "Ower", "Build" };
+
+            var res = _unitOfWork.DepartamentRepository.Find(x => x.Id == id, includes);
+            return res;
+        }
+
 
         public async Task Insert(Departament item)
         {
@@ -35,7 +42,7 @@ namespace PruebaTecnica.Core.Services
 
             if (validate)
             {
-                throw new System.Exception("Departament Exist");
+                throw new System.Exception("Departament exist");
             }
 
             await _unitOfWork.DepartamentRepository.Add(item);
@@ -53,7 +60,6 @@ namespace PruebaTecnica.Core.Services
         {
             await _unitOfWork.DepartamentRepository.Delete(id);
             _unitOfWork.SaveChanges();
-
         }
 
 

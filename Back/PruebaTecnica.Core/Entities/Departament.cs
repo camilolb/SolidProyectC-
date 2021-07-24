@@ -11,6 +11,7 @@ namespace PruebaTecnica.Core.Entities
         public int OwerId { get; set; }
         public int? BuildId { get; set; }
 
+        public virtual Owner Ower { get; set; }
         public virtual Build Build { get; set; }
     }
 }

@@ -17,8 +17,6 @@ namespace Pruebatecnica.Infrastructura.Data
         {
         }
 
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<Sales> Sales { get; set; }
         public virtual DbSet<Security> Security { get; set; }
 
 
@@ -31,8 +29,6 @@ namespace Pruebatecnica.Infrastructura.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new SecurityConfiguration());
-            modelBuilder.ApplyConfiguration(new SalesConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
 
             modelBuilder.ApplyConfiguration(new BuildConfiguration());
             modelBuilder.ApplyConfiguration(new DepartamentConfiguration());

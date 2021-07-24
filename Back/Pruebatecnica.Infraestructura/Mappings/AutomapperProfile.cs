@@ -1,7 +1,4 @@
-﻿using System;
-using AutoMapper;
-using PruebaTecnica.Core.DTOs;
-using PruebaTecnica.Core.Entities;
+﻿using AutoMapper;
 
 namespace Pruebatecnica.Infraestructura.Mappings
 {
@@ -10,8 +7,8 @@ namespace Pruebatecnica.Infraestructura.Mappings
         public AutomapperProfile()
         {
             /*
-            CreateMap<Post, PostDto>();
-            CreateMap<PostDto, Post>();*/
+            CreateMap<Departament, DepartamentDto>();
+            CreateMap<DepartamentDto, Departament>();*/
         }
     }
 }

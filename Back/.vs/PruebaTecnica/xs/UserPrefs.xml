@@ -6,24 +6,25 @@
           <Node name="PruebaTecnica" expanded="True">
             <Node name="1- Core" expanded="True">
               <Node name="PruebaTecnica.Core" expanded="True">
-                <Node name="Entities" expanded="True" />
-                <Node name="Interfaces" expanded="True" />
-                <Node name="Services" expanded="True">
-                  <Node name="DepartamentService.cs" selected="True" />
-                </Node>
+                <Node name="Services" expanded="True" />
               </Node>
             </Node>
             <Node name="2- Infraestructura" expanded="True">
               <Node name="Pruebatecnica.Infraestructura" expanded="True">
-                <Node name="Repositories" expanded="True" />
+                <Node name="Validators" expanded="True">
+                  <Node name="OwnerValidator.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
             <Node name="3 - Api" expanded="True">
               <Node name="PruebaTecnica.Api" expanded="True">
+                <Node name="Dependencies" expanded="True">
+                  <Node name="PackageDependencies" expanded="True" />
+                </Node>
                 <Node name="Controllers" expanded="True" />
               </Node>
             </Node>
-            <Node name="4- Test" expanded="True">
+            <Node name="5- Generate" expanded="True">
               <Node name="generate" expanded="True" />
             </Node>
           </Node>
@@ -37,13 +38,12 @@
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.3_220-_220Api.PruebaTecnica.Api PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.ItemProperties.5-_220Generate.generate FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/Controllers/PostController.cs" relfile="PruebaTecnica.Api/Controllers/PostController.cs" line="30" column="1" />
-      <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Core/Services/SecurityService.cs" relfile="PruebaTecnica.Core/Services/SecurityService.cs" line="53" column="1" />
-      <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/Controllers/SecurityController.cs" relfile="PruebaTecnica.Api/Controllers/SecurityController.cs" line="86" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.4-_220Test.generate FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.4-_220UnitTest.UnitTest FirstBuild="True" />
 </Properties>

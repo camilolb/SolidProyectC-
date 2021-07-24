@@ -9,6 +9,7 @@ namespace PruebaTecnica.Core.Interfaces
         Task<Build> Get(int id);
         Task Insert(Build item);
         void Update(Build item);
+        IEnumerable<Build> BuildAndDepartaments(int id);
     }
 }
 

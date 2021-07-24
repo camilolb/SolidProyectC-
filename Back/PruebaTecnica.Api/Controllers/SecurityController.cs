@@ -79,13 +79,14 @@ namespace PruebaTecnica.Api.Controllers
         }
 
 
+        /*
         [HttpPost]
         public IActionResult Logout()
         {
             Response.Cookies.Delete("jwt");
             var response = new ApiResponse<bool>(true);
             return Ok(response);
-        }
+        }*/
 
 
     }

@@ -51,6 +51,23 @@ namespace PruebaTecnica.Api.Controllers
 
 
 
+        [HttpGet("buildAndDepartaments")]
+        public IActionResult BuildAndDepartaments(int id)
+        {
+            try
+            {
+                var service = _BuildService.BuildAndDepartaments(id);
+                var response = new ApiResponse<IEnumerable<Build>>(service);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> Post(Build item)
         {

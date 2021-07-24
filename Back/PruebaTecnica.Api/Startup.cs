@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,7 @@ using Pruebatecnica.Infrastructura.Data;
 using PruebaTecnica.Core.Auth;
 using PruebaTecnica.Core.Interfaces;
 using PruebaTecnica.Core.Services;
+using Microsoft.OpenApi.Models;
 
 namespace PruebaTecnica.Api
 {
@@ -29,15 +31,22 @@ namespace PruebaTecnica.Api
         {
             services.AddControllers();
 
+            services.AddControllers().AddNewtonsoftJson(x =>
+            x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc().AddFluentValidation(options => {
+            services.AddMvc()
+                .AddFluentValidation(options => {
                 options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             });
+
+            AddSwagger(services);
+
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
@@ -77,6 +86,33 @@ namespace PruebaTecnica.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Foo API V1");
+            });
+        }
+
+        private void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                var groupName = "v1";
+
+                options.SwaggerDoc(groupName, new OpenApiInfo
+                {
+                    Title = $"Foo {groupName}",
+                    Version = groupName,
+                    Description = "Test Tech API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Test Tech",
+                        Email = string.Empty,
+                        Url = new Uri("https://foo.com/"),
+                    }
+                });
             });
         }
     }
