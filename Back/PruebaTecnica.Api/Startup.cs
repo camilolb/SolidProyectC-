@@ -14,6 +14,10 @@ using PruebaTecnica.Core.Auth;
 using PruebaTecnica.Core.Interfaces;
 using PruebaTecnica.Core.Services;
 using Microsoft.OpenApi.Models;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 namespace PruebaTecnica.Api
 {
@@ -58,6 +62,26 @@ namespace PruebaTecnica.Api
 
 
 
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+             })
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Authentication:Issuer"],
+                        ValidAudience = Configuration["Authentication:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Authentication:SecretKey"]))
+                    };
+                });
+
             services.AddTransient<IDepartamentService, DepartamentService>();
             services.AddTransient<IBuildService, BuildService>();
 
@@ -81,6 +105,7 @@ namespace PruebaTecnica.Api
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors("MyPolicy");
             app.UseEndpoints(endpoints =>
@@ -95,6 +120,8 @@ namespace PruebaTecnica.Api
             });
         }
 
+
+
         private void AddSwagger(IServiceCollection services)
         {
             services.AddSwaggerGen(options =>
@@ -103,14 +130,14 @@ namespace PruebaTecnica.Api
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"Foo {groupName}",
+                    Title = $"PruebaTecnica {groupName}",
                     Version = groupName,
                     Description = "Test Tech API",
                     Contact = new OpenApiContact
                     {
                         Name = "Test Tech",
                         Email = string.Empty,
-                        Url = new Uri("https://foo.com/"),
+                        Url = new Uri("https://localhost/"),
                     }
                 });
             });

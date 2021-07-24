@@ -702,3 +702,4 @@ C:/Users/Julian Bedoya/Desktop/Cristian/ArquitecturaLimpia/PruebaTecnica/PruebaT
 /Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
 /Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll

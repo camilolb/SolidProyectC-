@@ -32,7 +32,6 @@ namespace PruebaTecnica.Core.Services
 
         public IEnumerable<Build> Gets()
         {
-            
             return _unitOfWork.BuildRepository.GetAll();
         }
 

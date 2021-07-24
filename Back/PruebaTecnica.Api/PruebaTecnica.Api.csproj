@@ -16,6 +16,7 @@
   <ItemGroup>
     <Folder Include="Responses\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Jwt\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="PruebaTecnica.Web\Properties\launchSettings.json" />
@@ -27,5 +28,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.17" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
   </ItemGroup>
 </Project>
