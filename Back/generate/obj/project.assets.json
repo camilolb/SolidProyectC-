@@ -5773,7 +5773,7 @@
       "outputPath": "/Users/camilo/Desktop/Weelo/Back/generate/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/camilo/.nuget/NuGet/NuGet.Config"
+        "/Users/camilo/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

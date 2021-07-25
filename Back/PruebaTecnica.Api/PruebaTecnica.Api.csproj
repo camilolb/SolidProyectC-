@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="Responses\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Jwt\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="PruebaTecnica.Web\Properties\launchSettings.json" />

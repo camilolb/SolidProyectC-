@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pruebatecnica.Infraestructura.Repositories;
 using Pruebatecnica.Infrastructura.Data;
-using PruebaTecnica.Core.Auth;
 using PruebaTecnica.Core.Interfaces;
 using PruebaTecnica.Core.Services;
 using Microsoft.OpenApi.Models;
@@ -87,8 +86,6 @@ namespace PruebaTecnica.Api
 
             services.AddTransient<ISecurityRepository, SecurityRepository>();
             services.AddTransient<ISecurityService, SecurityService>();
-
-            services.AddTransient<IJwtService, JwtService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IUnitOfWork, UnitOfWork>();

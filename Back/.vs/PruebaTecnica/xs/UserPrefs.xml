@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{A3A13913-E558-40E0-8D30-3EF3B5A53B60}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Api/Controllers/DepartamentController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UnitTest/OwnerServiceTest.cs">
     <Files>
-      <File FileName="PruebaTecnica.Api/Controllers/SecurityController.cs" Line="41" Column="21" />
-      <File FileName="PruebaTecnica.Api/Controllers/BuildController.cs" Line="12" Column="16" />
-      <File FileName="PruebaTecnica.Api/Controllers/DepartamentController.cs" Line="11" Column="16" />
-      <File FileName="PruebaTecnica.Api/Responses/Jwt.cs" Line="34" Column="1" />
+      <File FileName="UnitTest/BuildServiceTest.cs" Line="62" Column="1" />
+      <File FileName="UnitTest/DepartamentServiceTest.cs" Line="64" Column="4" />
+      <File FileName="UnitTest/OwnerServiceTest.cs" Line="70" Column="40" />
+      <File FileName="PruebaTecnica.Core/Services/OwnerService.cs" Line="37" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,26 +12,28 @@
           <Node name="PruebaTecnica" expanded="True">
             <Node name="1- Core" expanded="True">
               <Node name="PruebaTecnica.Core" expanded="True">
-                <Node name="Dependencies" expanded="True">
-                  <Node name="PackageDependencies" expanded="True" />
-                </Node>
-                <Node name="Auth" expanded="True" />
-                <Node name="Entities" expanded="True" />
-                <Node name="Interfaces" expanded="True" />
                 <Node name="Services" expanded="True" />
               </Node>
             </Node>
-            <Node name="2- Infraestructura" expanded="True">
-              <Node name="Pruebatecnica.Infraestructura" expanded="True">
-                <Node name="Repositories" expanded="True" />
+            <Node name="3 - Api" expanded="True">
+              <Node name="PruebaTecnica.Api" expanded="True" />
+            </Node>
+            <Node name="4- UnitTest" expanded="True">
+              <Node name="UnitTest" expanded="True">
+                <Node name="OwnerServiceTest.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="3 - Api" expanded="True">
-              <Node name="PruebaTecnica.Api" expanded="True">
-                <Node name="Controllers" expanded="True">
-                  <Node name="DepartamentController.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="PruebaTecnica" expanded="True">
+            <Node name="4- UnitTest" expanded="True">
+              <Node name="UnitTest" expanded="True">
+                <Node name="UnitTest" expanded="True">
+                  <Node name="BuildServiceTest" selected="True" />
                 </Node>
-                <Node name="Responses" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -45,12 +47,12 @@
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.3_220-_220Api.PruebaTecnica.Api PreferredExecutionTarget="/Applications/Brave Browser.app" />
-  <MonoDevelop.Ide.ItemProperties.5-_220Generate.generate FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/Controllers/PostController.cs" relfile="PruebaTecnica.Api/Controllers/PostController.cs" line="30" column="1" />
+      <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Core/Services/BuildService.cs" relfile="PruebaTecnica.Core/Services/BuildService.cs" line="42" column="1" />
+      <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Core/Services/BuildService.cs" relfile="PruebaTecnica.Core/Services/BuildService.cs" line="36" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.4-_220UnitTest.UnitTest FirstBuild="True" />
 </Properties>

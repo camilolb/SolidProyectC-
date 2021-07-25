@@ -32,7 +32,8 @@ namespace PruebaTecnica.Core.Services
 
         public IEnumerable<Build> Gets()
         {
-            return _unitOfWork.BuildRepository.GetAll();
+            var res = _unitOfWork.BuildRepository.GetAll();
+            return res;
         }
 
         public async Task Insert(Build item)
