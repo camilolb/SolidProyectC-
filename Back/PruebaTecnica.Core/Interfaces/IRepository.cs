@@ -17,5 +17,6 @@ namespace PruebaTecnica.Core.Interfaces
         Task Delete(int id);
 
         IEnumerable<T> Find(Expression<Func<T, bool>> condition, params string[] includedProperties);
+        IEnumerable<T> GetAll(params string[] includedProperties);
     }
 }

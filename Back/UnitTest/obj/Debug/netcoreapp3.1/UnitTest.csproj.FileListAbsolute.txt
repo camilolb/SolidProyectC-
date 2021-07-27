@@ -1,7 +1,3 @@
-/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.csprojAssemblyReference.cache
-/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.AssemblyInfoInputs.cache
-/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.AssemblyInfo.cs
-/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.csproj.CoreCompileInputs.cache
 /Users/camilo/Desktop/Weelo/Back/UnitTest/bin/Debug/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
 /Users/camilo/Desktop/Weelo/Back/UnitTest/bin/Debug/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll
 /Users/camilo/Desktop/Weelo/Back/UnitTest/bin/Debug/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll
@@ -111,6 +107,10 @@
 /Users/camilo/Desktop/Weelo/Back/UnitTest/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 /Users/camilo/Desktop/Weelo/Back/UnitTest/bin/Debug/netcoreapp3.1/PruebaTecnica.Core.dll
 /Users/camilo/Desktop/Weelo/Back/UnitTest/bin/Debug/netcoreapp3.1/PruebaTecnica.Core.pdb
+/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.csprojAssemblyReference.cache
+/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.AssemblyInfoInputs.cache
+/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.AssemblyInfo.cs
+/Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.csproj.CoreCompileInputs.cache
 /Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.csproj.CopyComplete
 /Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.dll
 /Users/camilo/Desktop/Weelo/Back/UnitTest/obj/Debug/netcoreapp3.1/UnitTest.pdb

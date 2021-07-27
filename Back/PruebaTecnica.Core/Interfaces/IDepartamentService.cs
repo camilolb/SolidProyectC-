@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using PruebaTecnica.Core.Entities;
+using PruebaTecnica.Core.QueryFilters;
+
 namespace PruebaTecnica.Core.Interfaces
 {
     public interface IDepartamentService
@@ -10,5 +12,6 @@ namespace PruebaTecnica.Core.Interfaces
         Task Insert(Departament item);
         void Update(Departament item);
         IEnumerable<Departament> DepartamentAndOwner(int id);
+        IEnumerable<Departament> GetWithFilters(DepartamentQueryFilter departamentQueryFilter);
     }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PruebaTecnica.Core.Entities;
 using PruebaTecnica.Core.Interfaces;
-
+using PruebaTecnica.Core.QueryFilters;
 
 namespace PruebaTecnica.Core.Services
 {
@@ -26,6 +26,14 @@ namespace PruebaTecnica.Core.Services
             return _unitOfWork.DepartamentRepository.GetAll();
         }
 
+
+        public IEnumerable<Departament> GetWithFilters(DepartamentQueryFilter departamentQueryFilter)
+        {
+
+            var includes = new string[] { "Ower", "Build" };
+
+            return  _unitOfWork.DepartamentRepository.GetAll(includes);
+        }
 
         public IEnumerable<Departament> DepartamentAndOwner(int id)
         {
@@ -67,6 +75,24 @@ namespace PruebaTecnica.Core.Services
         {
             var validate = _unitOfWork.DepartamentRepository.GetAll().Where(x => x.Number == item.Number).Any();
             return validate;
+        }
+
+        private void FilterListDepartament(IEnumerable<Departament> res, DepartamentQueryFilter departamentQueryFilter)
+        {
+            if (departamentQueryFilter.Number != null)
+            {
+                res.Where(x => x.Number == departamentQueryFilter.Number);
+            }
+
+            if (departamentQueryFilter.Owner != null)
+            {
+                res.Where(x => x.Ower.FullName.Contains(departamentQueryFilter.Owner));
+            }
+
+            if (departamentQueryFilter.Price != null)
+            {
+                //res.Where(x => x. == filterQuery.Tower);
+            }
         }
     }
 }

@@ -1,21 +1,20 @@
 using System;
-using System.Text.Json.Serialization;
+using System.Text;
 using AutoMapper;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Pruebatecnica.Infraestructura.Repositories;
 using Pruebatecnica.Infrastructura.Data;
 using PruebaTecnica.Core.Interfaces;
 using PruebaTecnica.Core.Services;
-using Microsoft.OpenApi.Models;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 
 namespace PruebaTecnica.Api
@@ -58,9 +57,6 @@ namespace PruebaTecnica.Api
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-
-
-
 
             services.AddAuthentication(x =>
             {

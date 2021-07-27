@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Api.Responses;
 using PruebaTecnica.Core.Entities;
 using PruebaTecnica.Core.Interfaces;
+using PruebaTecnica.Core.QueryFilters;
 
 namespace PruebaTecnica.Api.Controllers
 {
@@ -22,11 +23,11 @@ namespace PruebaTecnica.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] BuildQueryFilter filterQuery)
         {
             try
             {
-                var service = _BuildService.Gets();
+                var service = _BuildService.Gets(filterQuery);
                 var response = new ApiResponse<IEnumerable<Build>>(service);
                 return Ok(response);
             }
@@ -51,6 +52,7 @@ namespace PruebaTecnica.Api.Controllers
                 return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
             }
         }
+
 
 
 

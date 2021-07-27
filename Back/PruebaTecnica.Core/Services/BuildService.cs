@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using PruebaTecnica.Core.Entities;
 using PruebaTecnica.Core.Interfaces;
-
+using PruebaTecnica.Core.QueryFilters;
 
 namespace PruebaTecnica.Core.Services
 {
@@ -30,9 +31,11 @@ namespace PruebaTecnica.Core.Services
             return res;
         }
 
-        public IEnumerable<Build> Gets()
+        public IEnumerable<Build> Gets(BuildQueryFilter filterQuery)
         {
             var res = _unitOfWork.BuildRepository.GetAll();
+            this.FilterListBuild(res, filterQuery);
+
             return res;
         }
 
@@ -55,6 +58,26 @@ namespace PruebaTecnica.Core.Services
             _unitOfWork.SaveChanges();
 
         }
+
+
+        private void FilterListBuild(IEnumerable<Build> res, BuildQueryFilter filterQuery)
+        {
+            if (filterQuery.Name != null)
+            {
+                res.Where(x => x.Name == filterQuery.Name);
+            }
+
+            if (filterQuery.Adress != null)
+            {
+                res.Where(x => x.Address == filterQuery.Adress);
+            }
+
+            if (filterQuery.Tower != null)
+            {
+                res.Where(x => x.Tower == filterQuery.Tower);
+            }
+        }
+
 
     }
 }

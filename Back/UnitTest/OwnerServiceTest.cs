@@ -21,8 +21,6 @@ namespace UnitTest
         }
 
 
-
-
         [Fact]
         public void Get_Owner_By_Id()
         {
