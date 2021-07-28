@@ -25,7 +25,7 @@ namespace PruebaTecnica.Api.Controllers
         {
             try
             {
-                var service = _departamentService.Gets();
+                var service = _departamentService.GetAll();
                 var response = new ApiResponse<IEnumerable<Departament>>(service);
                 return Ok(response);
             }

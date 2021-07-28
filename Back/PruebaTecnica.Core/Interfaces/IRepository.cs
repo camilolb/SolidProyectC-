@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using PruebaTecnica.Core.Entities;
@@ -15,6 +13,8 @@ namespace PruebaTecnica.Core.Interfaces
         Task Add(T entity);
         void Update(T entity);
         Task Delete(int id);
+
+
 
         IEnumerable<T> Find(Expression<Func<T, bool>> condition, params string[] includedProperties);
         IEnumerable<T> GetAll(params string[] includedProperties);

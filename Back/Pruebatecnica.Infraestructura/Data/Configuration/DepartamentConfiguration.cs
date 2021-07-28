@@ -14,6 +14,14 @@ namespace Pruebatecnica.Infraestructura.Data.Configuration
 
             entity.Property(e => e.Create).HasColumnType("datetime");
 
+            entity.Property(e => e.Image)
+                .HasMaxLength(256)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Price)
+                .IsRequired()
+                .IsUnicode(false);
+
             entity.Property(e => e.Modify).HasColumnType("datetime");
 
             entity.Property(e => e.Number)
@@ -24,7 +32,13 @@ namespace Pruebatecnica.Infraestructura.Data.Configuration
             entity.HasOne(d => d.Build)
                 .WithMany(p => p.Departaments)
                 .HasForeignKey(d => d.BuildId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Departament_BuildID");
+
+            entity.HasOne(d => d.Ower)
+                .WithMany(p => p.Departaments)
+                .HasForeignKey(d => d.OwerId)
+                .HasConstraintName("FK_Departament_Owner");
 
         }
     }

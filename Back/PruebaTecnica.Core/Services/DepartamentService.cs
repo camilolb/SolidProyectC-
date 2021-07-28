@@ -26,12 +26,9 @@ namespace PruebaTecnica.Core.Services
             return _unitOfWork.DepartamentRepository.GetAll();
         }
 
-
-        public IEnumerable<Departament> GetWithFilters(DepartamentQueryFilter departamentQueryFilter)
+        public IEnumerable<Departament> GetAll()
         {
-
-            var includes = new string[] { "Ower", "Build" };
-
+            var includes = new string[] { "Ower" };
             return  _unitOfWork.DepartamentRepository.GetAll(includes);
         }
 

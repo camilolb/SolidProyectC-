@@ -12,7 +12,7 @@ namespace Pruebatecnica.Infraestructura.Repositories
         private readonly IRepository<Build> _buildRepository;
         private readonly IRepository<Departament> _departamentRepository;
         private readonly IRepository<Owner> _ownerRepository;
-        
+         
         
         public UnitOfWork(DatabaseContext dbContext)
         {

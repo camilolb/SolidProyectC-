@@ -18,15 +18,11 @@ namespace Pruebatecnica.Infraestructura.Repositories
     {
         private readonly DatabaseContext _context;
         protected readonly DbSet<T> _entities;
-        private readonly IConfiguration _configuration;
 
-
-
-        public BaseRepository(DatabaseContext context, IConfiguration configuration)
+        public BaseRepository(DatabaseContext context)
         {
             _context = context;
             _entities = context.Set<T>();
-            _configuration = configuration;
         }
 
         public IEnumerable<T> GetAll()
@@ -36,10 +32,10 @@ namespace Pruebatecnica.Infraestructura.Repositories
 
         public IEnumerable<T> GetAll(params string[] includedProperties)
         {
-            var result = this.All();
+            IQueryable<T> result = this.All();
             foreach (var item in includedProperties)
             {
-                result.Include(item);
+                result = result.Include(item);
             }
 
             return result.AsEnumerable();
@@ -105,7 +101,7 @@ namespace Pruebatecnica.Infraestructura.Repositories
         {
             DataSet data = new DataSet();
 
-            using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+            using (SqlConnection connection = new SqlConnection(""))
             {
                 using (SqlCommand command = new SqlCommand(storeProcedure, connection))
                 {

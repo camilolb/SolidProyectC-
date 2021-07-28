@@ -18,9 +18,6 @@ namespace Pruebatecnica.Infrastructura.Data
         }
 
         public virtual DbSet<Security> Security { get; set; }
-
-
-
         public virtual DbSet<Build> Build { get; set; }
         public virtual DbSet<Departament> Departament { get; set; }
         public virtual DbSet<Owner> Owner { get; set; }

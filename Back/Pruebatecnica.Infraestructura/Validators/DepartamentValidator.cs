@@ -17,6 +17,11 @@ namespace Pruebatecnica.Infraestructura.Validators
 
             RuleFor(dep => dep.BuildId)
             .NotNull();
+
+            RuleFor(dep => dep.Price)
+            .NotEqual(0)
+            .NotNull();
+
         }
     }
 }

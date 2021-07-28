@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{A3A13913-E558-40E0-8D30-3EF3B5A53B60}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Core/Entities/Departament.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Api/appsettings.json">
     <Files>
-      <File FileName="PruebaTecnica.Api/Controllers/BuildController.cs" Line="30" Column="47" />
-      <File FileName="Pruebatecnica.Infraestructura/Repositories/BaseRepository.cs" Line="46" Column="10" />
-      <File FileName="PruebaTecnica.Core/Interfaces/IDepartamentService.cs" Line="15" Column="95" />
-      <File FileName="PruebaTecnica.Core/Services/DepartamentService.cs" Line="30" Column="34" />
-      <File FileName="PruebaTecnica.Core/Services/BuildService.cs" Line="72" Column="65" />
-      <File FileName="PruebaTecnica.Core/QueryFilters/DepartamentQueryFilter.cs" Line="9" Column="43" />
-      <File FileName="PruebaTecnica.Core/Entities/Departament.cs" Line="16" Column="6" />
+      <File FileName="PruebaTecnica.Api/Controllers/DepartamentController.cs" Line="87" Column="17" />
+      <File FileName="PruebaTecnica.Core/Services/DepartamentService.cs" Line="28" Column="1" />
+      <File FileName="Pruebatecnica.Infraestructura/Repositories/BaseRepository.cs" Line="24" Column="32" />
+      <File FileName="Pruebatecnica.Infraestructura/Validators/DepartamentValidator.cs" Line="23" Column="24" />
+      <File FileName="Pruebatecnica.Infraestructura/Data/Configuration/DepartamentConfiguration.cs" Line="22" Column="28" />
+      <File FileName="PruebaTecnica.Api/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,35 +22,34 @@
             </Node>
             <Node name="2- Infraestructura" expanded="True">
               <Node name="Pruebatecnica.Infraestructura" expanded="True">
+                <Node name="Data" expanded="True">
+                  <Node name="Configuration" expanded="True" />
+                </Node>
                 <Node name="Repositories" expanded="True" />
+                <Node name="Validators" expanded="True" />
               </Node>
             </Node>
             <Node name="3 - Api" expanded="True">
               <Node name="PruebaTecnica.Api" expanded="True">
                 <Node name="Controllers" expanded="True" />
                 <Node name="Responses" expanded="True" />
+                <Node name="appsettings.json" selected="True" />
               </Node>
             </Node>
             <Node name="4- UnitTest" expanded="True">
               <Node name="UnitTest" expanded="True" />
             </Node>
             <Node name="5- Generate" expanded="True">
-              <Node name="generate" expanded="True" selected="True" />
+              <Node name="generate" expanded="True">
+                <Node name="Model" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="PruebaTecnica" expanded="True">
-            <Node name="4- UnitTest" expanded="True">
-              <Node name="UnitTest" expanded="True">
-                <Node name="UnitTest" expanded="True">
-                  <Node name="DepartamentServiceTest" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="PruebaTecnica" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
@@ -67,6 +65,7 @@
       <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Api/Controllers/PostController.cs" relfile="PruebaTecnica.Api/Controllers/PostController.cs" line="30" column="1" />
       <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/UnitTest/BuildServiceTest.cs" relfile="UnitTest/BuildServiceTest.cs" line="29" column="1" />
       <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/UnitTest/DepartamentServiceTest.cs" relfile="UnitTest/DepartamentServiceTest.cs" line="34" column="1" />
+      <Breakpoint file="/Users/camilo/Desktop/Weelo/Back/PruebaTecnica.Core/Services/DepartamentService.cs" relfile="PruebaTecnica.Core/Services/DepartamentService.cs" line="31" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
