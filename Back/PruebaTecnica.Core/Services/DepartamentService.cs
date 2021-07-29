@@ -18,7 +18,8 @@ namespace PruebaTecnica.Core.Services
 
         public async Task<Departament> Get(int id)
         {
-            return await _unitOfWork.DepartamentRepository.GetById(id);
+            var res = await _unitOfWork.DepartamentRepository.GetById(id);
+            return res;
         }
 
         public IEnumerable<Departament> Gets()
@@ -40,6 +41,12 @@ namespace PruebaTecnica.Core.Services
             return res;
         }
 
+        public IEnumerable<Departament> DepartamentFilter(DepartamentQueryFilter departamentQueryFilter)
+        {
+            var departament = _unitOfWork.DepartamentRepository.GetAll();
+            var response = this.FilterListDepartament(departament, departamentQueryFilter);
+            return response;
+        }
 
         public async Task Insert(Departament item)
         {
@@ -58,7 +65,6 @@ namespace PruebaTecnica.Core.Services
         {
             _unitOfWork.DepartamentRepository.Update(item);
             _unitOfWork.SaveChanges();
-
         }
 
         public async Task Delete(int id)
@@ -70,26 +76,25 @@ namespace PruebaTecnica.Core.Services
 
         private bool GetExistNumber(Departament item)
         {
-            var validate = _unitOfWork.DepartamentRepository.GetAll().Where(x => x.Number == item.Number).Any();
+            var validate = _unitOfWork.DepartamentRepository.Find(x => x.Number == item.Number).Any();
             return validate;
         }
 
-        private void FilterListDepartament(IEnumerable<Departament> res, DepartamentQueryFilter departamentQueryFilter)
+        private IEnumerable<Departament> FilterListDepartament(IEnumerable<Departament> res, DepartamentQueryFilter departamentQueryFilter)
         {
+            IEnumerable<Departament> filter = new List<Departament>();
+
             if (departamentQueryFilter.Number != null)
             {
-                res.Where(x => x.Number == departamentQueryFilter.Number);
-            }
-
-            if (departamentQueryFilter.Owner != null)
-            {
-                res.Where(x => x.Ower.FullName.Contains(departamentQueryFilter.Owner));
+                filter = res.Where(x => x.Number == departamentQueryFilter.Number);
             }
 
             if (departamentQueryFilter.Price != null)
             {
-                //res.Where(x => x. == filterQuery.Tower);
+                filter = res.Where(x => x.Price == departamentQueryFilter.Price);
             }
+
+            return filter;
         }
     }
 }

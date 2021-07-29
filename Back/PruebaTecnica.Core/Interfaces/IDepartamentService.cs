@@ -12,6 +12,7 @@ namespace PruebaTecnica.Core.Interfaces
         Task Insert(Departament item);
         void Update(Departament item);
         IEnumerable<Departament> DepartamentAndOwner(int id);
+        IEnumerable<Departament> DepartamentFilter(DepartamentQueryFilter departamentQueryFilter);
         IEnumerable<Departament> GetAll();
     }
 }

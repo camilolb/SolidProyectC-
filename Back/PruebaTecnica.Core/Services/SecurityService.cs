@@ -21,7 +21,7 @@ namespace PruebaTecnica.Core.Services
 
         public async Task<Security> Get(string userName, string password)
         {
-            var res = await _securityRepository.Get(userName);
+            var res = await _securityRepository.GetByEmail(userName);
 
             var validate = !BCrypt.Net.BCrypt.Verify(password, res.Password);
             if (validate)
@@ -37,13 +37,20 @@ namespace PruebaTecnica.Core.Services
         private async Task<Security> Get(string email)
         {
 
-            var res = await _securityRepository.Get(email);
-            return await _securityRepository.Get(email);
+            var res = await _securityRepository.GetByEmail(email);
+            return res;
 
         }
 
         public async Task Insert(Security item)
         {
+            var validateUser = await Get(item.Email);
+
+            if (validateUser != null)
+            {
+                throw new System.Exception("User exit");
+            }
+
             item.Password = BCrypt.Net.BCrypt.HashPassword(item.Password);
             await _securityRepository.Insert(item);
         }
@@ -55,8 +62,14 @@ namespace PruebaTecnica.Core.Services
                 item.Password = BCrypt.Net.BCrypt.HashPassword(item.Password);
             }
 
-            var product = await _securityRepository.Get(item.Id);
-            return await _securityRepository.Update(product);
+            var user = await _securityRepository.Get(item.Id);
+
+            if (user == null)
+            {
+                throw new System.Exception("User not exit");
+            }
+
+            return await _securityRepository.Update(user);
         }
 
 

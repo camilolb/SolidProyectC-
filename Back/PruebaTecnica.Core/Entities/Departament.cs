@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace PruebaTecnica.Core.Entities
 {
@@ -10,7 +7,7 @@ namespace PruebaTecnica.Core.Entities
         public string Number { get; set; }
         public int OwerId { get; set; }
         public int BuildId { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public string Image { get; set; }
 
         public virtual Owner Ower { get; set; }

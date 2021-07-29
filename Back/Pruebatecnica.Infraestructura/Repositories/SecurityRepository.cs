@@ -31,7 +31,7 @@ namespace Pruebatecnica.Infraestructura.Repositories
             return response;
         }
 
-        public async Task<Security> Get(string email)
+        public async Task<Security> GetByEmail(string email)
         {
             var response = await _dbContext.Security.FirstOrDefaultAsync(x => x.Email == email);
             return response;
@@ -47,6 +47,7 @@ namespace Pruebatecnica.Infraestructura.Repositories
         public async Task<bool> Update(Security item)
         {
             var current = await Get(item.Id);
+            _dbContext.Security.Update(item);
 
             int rowAfected = await _dbContext.SaveChangesAsync();
             return rowAfected > 0;

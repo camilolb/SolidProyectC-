@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Api.Responses;
 using PruebaTecnica.Core.Entities;
 using PruebaTecnica.Core.Interfaces;
+using PruebaTecnica.Core.QueryFilters;
 
 namespace PruebaTecnica.Api.Controllers
 {
@@ -50,6 +51,22 @@ namespace PruebaTecnica.Api.Controllers
                 return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
             }
         }
+
+        [HttpGet("DepartamentFilter")]
+        public IActionResult DepartamentFilter([FromQuery]DepartamentQueryFilter departamentQueryFilter)
+        {
+            try
+            {
+                var service = _departamentService.DepartamentFilter(departamentQueryFilter);
+                var response = new ApiResponse<IEnumerable<Departament>>(service);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
+        }
+
 
 
         [HttpGet("{id}")]

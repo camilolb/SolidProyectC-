@@ -24,15 +24,18 @@ namespace UnitTest
 
 
         [Fact]
-        public async Task Get_Departament_By_Id()
+
+        public void Get_Build_By_Id()
         {
             //Arange
-            var id = 3;
+            var id = 1;
             //Act
-            var res = await _departamentService.Get(id);
+            var res = _departamentService.Get(id);
+
             //Asert
             Assert.Equal(id, res.Id);
         }
+
 
 
         [Fact]

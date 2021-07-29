@@ -31,7 +31,14 @@ namespace PruebaTecnica.Core.Services
             return res;
         }
 
-        public IEnumerable<Build> Gets(BuildQueryFilter filterQuery)
+
+        public IEnumerable<Build> Gets()
+        {
+            var res = _unitOfWork.BuildRepository.GetAll();
+            return res;
+        }
+
+        public IEnumerable<Build> BuildFilter(BuildQueryFilter filterQuery)
         {
             var res = _unitOfWork.BuildRepository.GetAll();
             this.FilterListBuild(res, filterQuery);
@@ -77,7 +84,5 @@ namespace PruebaTecnica.Core.Services
                 res.Where(x => x.Tower == filterQuery.Tower);
             }
         }
-
-
     }
 }

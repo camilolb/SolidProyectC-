@@ -56,7 +56,6 @@ namespace PruebaTecnica.Api.Controllers
             return Ok(response);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(Security item)
         {

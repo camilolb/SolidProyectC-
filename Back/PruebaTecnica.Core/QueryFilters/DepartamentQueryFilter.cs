@@ -6,6 +6,6 @@ namespace PruebaTecnica.Core.QueryFilters
         public string Number { get; set; }
         public string Owner { get; set; }
         public string Build { get; set; }
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
     }
 }

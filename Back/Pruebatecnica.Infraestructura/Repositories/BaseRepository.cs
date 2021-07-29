@@ -53,18 +53,6 @@ namespace Pruebatecnica.Infraestructura.Repositories
             return result.AsEnumerable();
         }
 
-        public IEnumerable<T> ExecuteProcedure<T>(string storeProcedure, SqlParameter[] parameters = null) where T : class, new()
-        {
-            IEnumerable<T> response = new List<T>();
-            DataSet data = ExecuteProcedure(storeProcedure, parameters);
-
-            if (data != null && data.Tables.Count > 0)
-            {
-                response = data.Tables[0].DataTableToList<T>();
-            }
-
-            return response;
-        }
 
         public async Task<T> GetById(int id)
         {
@@ -87,6 +75,7 @@ namespace Pruebatecnica.Infraestructura.Repositories
             _entities.Remove(entity);
         }
 
+
         private IQueryable<T> Find(Expression<Func<T, bool>> condition)
         {
             return _entities.Where(condition);
@@ -95,6 +84,19 @@ namespace Pruebatecnica.Infraestructura.Repositories
         private IQueryable<T> All()
         {
             return _entities;
+        }
+
+        public IEnumerable<T> ExecuteProcedure<T>(string storeProcedure, SqlParameter[] parameters = null) where T : class, new()
+        {
+            IEnumerable<T> response = new List<T>();
+            DataSet data = ExecuteProcedure(storeProcedure, parameters);
+
+            if (data != null && data.Tables.Count > 0)
+            {
+                response = data.Tables[0].DataTableToList<T>();
+            }
+
+            return response;
         }
 
         public DataSet ExecuteProcedure(string storeProcedure, SqlParameter[] parameters = null)

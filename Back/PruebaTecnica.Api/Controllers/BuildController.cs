@@ -22,12 +22,33 @@ namespace PruebaTecnica.Api.Controllers
             _BuildService = BuildService;
         }
 
+
+
         [HttpGet]
         public IActionResult Get([FromQuery] BuildQueryFilter filterQuery)
         {
             try
             {
-                var service = _BuildService.Gets(filterQuery);
+                var service = _BuildService.BuildFilter(filterQuery);
+                var response = new ApiResponse<IEnumerable<Build>>(service);
+                return Ok(response);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
+            }
+        }
+
+
+        
+
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                var service = _BuildService.Gets();
                 var response = new ApiResponse<IEnumerable<Build>>(service);
                 return Ok(response);
             }

@@ -6,12 +6,11 @@ namespace PruebaTecnica.Core.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<Build> BuildRepository { get; }
-        IRepository<Departament> DepartamentRepository { get; }
-        IRepository<Owner> OwnerRepository { get; }
+        IBuildRepository BuildRepository { get; }
+        IDepartamentRepository DepartamentRepository { get; }
+        IOwnerRepository OwnerRepository { get; }
 
         void SaveChanges();
-
         Task SaveChangesAsync();
 
     }

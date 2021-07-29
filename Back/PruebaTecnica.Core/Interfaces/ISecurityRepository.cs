@@ -6,7 +6,7 @@ namespace PruebaTecnica.Core.Interfaces
 {
     public interface ISecurityRepository
     {
-        Task<Security> Get(string email);
+        Task<Security> GetByEmail(string email);
         Task<Security> Get(int id);
         Task<Security> Get(string userName, string password);
         Task Insert(Security item);

@@ -54,7 +54,6 @@ namespace UnitTest
             ).Returns((objectsList));
 
             var res = _buildService.Gets();
-
             Assert.NotEmpty(res);
         }
 

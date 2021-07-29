@@ -9,9 +9,9 @@ namespace Pruebatecnica.Infraestructura.Repositories
     {
         private readonly DatabaseContext _dbContext;
 
-        private readonly IRepository<Build> _buildRepository;
-        private readonly IRepository<Departament> _departamentRepository;
-        private readonly IRepository<Owner> _ownerRepository;
+        private readonly IBuildRepository _buildRepository;
+        private readonly IDepartamentRepository _departamentRepository;
+        private readonly IOwnerRepository _ownerRepository;
          
         
         public UnitOfWork(DatabaseContext dbContext)
@@ -19,10 +19,9 @@ namespace Pruebatecnica.Infraestructura.Repositories
             _dbContext = dbContext;
         }
 
-        public IRepository<Build> BuildRepository => _buildRepository ?? new BaseRepository<Build>(_dbContext);
-        public IRepository<Departament> DepartamentRepository => _departamentRepository ?? new BaseRepository<Departament>(_dbContext);
-        public IRepository<Owner> OwnerRepository => _ownerRepository ?? new BaseRepository<Owner>(_dbContext);
-
+        public IBuildRepository BuildRepository => _buildRepository ?? new BuildRepository(_dbContext);
+        public IDepartamentRepository DepartamentRepository => _departamentRepository ?? new DepartamentRepository(_dbContext);
+        public IOwnerRepository OwnerRepository => _ownerRepository ?? new OwnerRepository(_dbContext);
 
         public void Dispose()
         {

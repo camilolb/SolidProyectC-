@@ -7,11 +7,12 @@ namespace PruebaTecnica.Core.Interfaces
 {
     public interface IBuildService
     {
-        IEnumerable<Build> Gets(BuildQueryFilter filterQuery);
+        IEnumerable<Build> Gets();
         Task<Build> Get(int id);
         Task Insert(Build item);
         void Update(Build item);
         IEnumerable<Build> BuildAndDepartaments(int id);
+        IEnumerable<Build> BuildFilter(BuildQueryFilter filterQuery);
     }
 }
 
