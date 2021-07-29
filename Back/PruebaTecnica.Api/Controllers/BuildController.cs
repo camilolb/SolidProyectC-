@@ -24,8 +24,8 @@ namespace PruebaTecnica.Api.Controllers
 
 
 
-        [HttpGet]
-        public IActionResult Get([FromQuery] BuildQueryFilter filterQuery)
+        [HttpGet("getFilter")]
+        public IActionResult GetFilter([FromQuery] BuildQueryFilter filterQuery)
         {
             try
             {
@@ -38,9 +38,6 @@ namespace PruebaTecnica.Api.Controllers
                 return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
             }
         }
-
-
-        
 
 
         [HttpGet]
@@ -91,8 +88,6 @@ namespace PruebaTecnica.Api.Controllers
                 return BadRequest(new APIError { Version = "1.0", ErrorMessage = ex.Message, StatusCode = "500" });
             }
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> Post(Build item)
