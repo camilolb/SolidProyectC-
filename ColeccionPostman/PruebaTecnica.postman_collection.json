@@ -52,11 +52,11 @@
 								}
 							]
 						},
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Name\": \"test_editado\",\n    \"UserName\": \"test123\",\n    \"Password\": \"123\",\n    \"code\": \"0111\",\n    \"Email\": \"testPrueba@hot.com\"\n\n}",
+							"raw": "{\n    \"Name\": \"test_editado\",\n    \"UserName\": \"test123\",\n    \"Password\": \"123\",\n    \"code\": \"012111\",\n    \"Email\": \"testPrueba_crear@hot.com\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -64,7 +64,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/security?id=3",
+							"raw": "https://localhost:5001/api/security",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -73,12 +73,6 @@
 							"path": [
 								"api",
 								"security"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "3"
-								}
 							]
 						}
 					},
