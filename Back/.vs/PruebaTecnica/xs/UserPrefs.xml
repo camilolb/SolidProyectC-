@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{A3A13913-E558-40E0-8D30-3EF3B5A53B60}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Api/Controllers/BuildController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PruebaTecnica.Api/appsettings.json">
     <Files>
       <File FileName="PruebaTecnica.Core/Entities/Departament.cs" Line="12" Column="1" />
-      <File FileName="PruebaTecnica.Api/Controllers/BuildController.cs" Line="40" Column="12" />
+      <File FileName="PruebaTecnica.Api/Controllers/BuildController.cs" Line="44" Column="35" />
+      <File FileName="PruebaTecnica.Api/appsettings.json" Line="10" Column="88" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +16,9 @@
             </Node>
             <Node name="3 - Api" expanded="True">
               <Node name="PruebaTecnica.Api" expanded="True">
-                <Node name="Controllers" expanded="True">
-                  <Node name="BuildController.cs" selected="True" />
-                </Node>
+                <Node name="Controllers" expanded="True" />
                 <Node name="Responses" expanded="True" />
+                <Node name="appsettings.json" selected="True" />
               </Node>
             </Node>
             <Node name="4- UnitTest" expanded="True" />
